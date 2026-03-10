@@ -18,10 +18,10 @@ def loadData():
 def saveData(data):
     with open("db.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
+if __name__ == "__main__":
+    data = loadData()
 
-data = loadData()
+    number = int(input("Введите число: "))
+    data.append(number)
 
-number = int(input("Введите число: "))
-data.append(number)
-
-saveData(data)
+    saveData(data)
