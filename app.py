@@ -18,10 +18,38 @@ def loadData():
 def saveData(data):
     with open("db.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-if __name__ == "__main__":
-    data = loadData()
 
-    number = int(input("Введите число: "))
+def viewNumberList(data):
+    if not data:
+        print("\nСписок пуст")
+    else:
+        print("\nСписок сохраненных чисел:")
+        for num in data:
+            print(num)
+
+def addNumber():
+    number = int(input("\nВведите число: "))
     data.append(number)
 
-    saveData(data)
+
+if __name__ == "__main__":
+    
+    data = loadData()
+    run = True
+
+    while run:
+        print("\n                ---МЕНЮ---")
+        print("1. Список чисел  2. Добавить число 3. Выход")
+        
+        choice = input("\nВыбирите действие: ")
+        
+        if choice == "1":
+            viewNumberList(data)
+        elif choice == "2":
+            addNumber()
+        elif choice == "3":
+            run = False
+        else:
+            print("\nТакого действия нет")
+
+    saveData(data)    
