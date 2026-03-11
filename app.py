@@ -21,7 +21,17 @@ def saveData(data):
 if __name__ == "__main__":
     data = loadData()
 
-    number = int(input("Введите число: "))
+    print("Список сохраненных чисел:")
+    for num in data:
+        print(num)
+
+    number = int(input("\nВведите число: "))
     data.append(number)
 
+    print("\nОбновленный список:")
+    for num in data:
+        print(num)
+
     saveData(data)
+
+    input("\nНажмите любую кнопку чтобы выйти...")
